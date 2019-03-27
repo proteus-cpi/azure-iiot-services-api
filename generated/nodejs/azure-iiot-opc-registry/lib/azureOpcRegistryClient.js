@@ -2889,6 +2889,9 @@ function _getSupervisor(supervisorId, options, callback) {
  * @param {boolean} [request.removeDiscoveryCallbacks] Whether to add or remove
  * callbacks
  *
+ * @param {string} [request.logLevel] Current log level. Possible values
+ * include: 'Error', 'Information', 'Debug', 'Verbose'
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -6130,6 +6133,9 @@ class AzureOpcRegistryClient extends ServiceClient {
    * @param {boolean} [request.removeDiscoveryCallbacks] Whether to add or remove
    * callbacks
    *
+   * @param {string} [request.logLevel] Current log level. Possible values
+   * include: 'Error', 'Information', 'Debug', 'Verbose'
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -6230,6 +6236,9 @@ class AzureOpcRegistryClient extends ServiceClient {
    *
    * @param {boolean} [request.removeDiscoveryCallbacks] Whether to add or remove
    * callbacks
+   *
+   * @param {string} [request.logLevel] Current log level. Possible values
+   * include: 'Error', 'Information', 'Debug', 'Verbose'
    *
    * @param {object} [options] Optional Parameters.
    *

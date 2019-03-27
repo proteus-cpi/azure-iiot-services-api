@@ -680,10 +680,33 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Cli {
         /// <summary>
         /// Unregister application
         /// </summary>
-        private static Task UnregisterApplicationAsync(IRegistryServiceApi service,
+        private static async Task UnregisterApplicationAsync(IRegistryServiceApi service,
             CliOptions options) {
-            return service.UnregisterApplicationAsync(
-                options.GetValue<string>("-i", "--id"));
+
+            var id = options.GetValueOrDefault<string>("-i", "--id", null);
+            if (id != null) {
+                await service.UnregisterApplicationAsync(id);
+                return;
+            }
+
+            var query = new ApplicationRegistrationQueryApiModel {
+                ApplicationUri = options.GetValueOrDefault<string>("-u", "--uri", null),
+                ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
+                ApplicationType = options.GetValueOrDefault<ApplicationType>("-t", "--type", null),
+                ApplicationName = options.GetValueOrDefault<string>("-n", "--name", null),
+                Locale = options.GetValueOrDefault<string>("-l", "--locale", null)
+            };
+
+            // Unregister all applications
+            var result = await service.QueryAllApplicationsAsync(query);
+            foreach (var item in result) {
+                try {
+                    await service.UnregisterApplicationAsync(item.ApplicationId);
+                }
+                catch (Exception ex) {
+                    Console.WriteLine($"Failed to unregister {item.ApplicationId}: {ex.Message}");
+                }
+            }
         }
 
         /// <summary>
@@ -1086,7 +1109,12 @@ Commands and Options
 
      unregister  Unregister application
         with ...
-        -i, --id        Id of application to unregister (mandatory)
+        -i, --id        Id of application to unregister 
+                        -or- all matching
+        -u, --uri       Application uri and/or
+        -n  --name      Application name and/or
+        -t, --type      Application type and/or
+        -p, --product   Product uri and/or
 
      purge       Purge applications not seen ...
         with ...
@@ -1231,7 +1259,7 @@ Commands and Options
         -n, --nodeid    Node to browse (mandatory)
 
      help, -h, -? --help
-                Prints out this help.
+                 Prints out this help.
 "
                 );
         }
@@ -1296,7 +1324,7 @@ Commands and Options
         -i, --id        Id of supervisor to reset (mandatory)
 
      help, -h, -? --help
-                Prints out this help.
+                 Prints out this help.
 "
                 );
         }

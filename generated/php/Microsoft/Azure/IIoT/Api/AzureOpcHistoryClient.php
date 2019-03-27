@@ -1311,6 +1311,10 @@ more results.
             'EndpointApiModel' => [
                 'properties' => [
                     'url' => ['type' => 'string'],
+                    'alternativeUrls' => [
+                        'type' => 'array',
+                        'items' => ['type' => 'string']
+                    ],
                     'user' => ['$ref' => '#/definitions/CredentialApiModel'],
                     'securityMode' => [
                         'type' => 'string',
@@ -1351,6 +1355,7 @@ more results.
             'EndpointRegistrationApiModel' => [
                 'properties' => [
                     'id' => ['type' => 'string'],
+                    'endpointUrl' => ['type' => 'string'],
                     'siteId' => ['type' => 'string'],
                     'endpoint' => ['$ref' => '#/definitions/EndpointApiModel'],
                     'securityLevel' => [
@@ -1589,6 +1594,15 @@ more results.
                         'type' => 'string',
                         'format' => 'byte'
                     ],
+                    'logLevel' => [
+                        'type' => 'string',
+                        'enum' => [
+                            'Error',
+                            'Information',
+                            'Debug',
+                            'Verbose'
+                        ]
+                    ],
                     'outOfSync' => ['type' => 'boolean'],
                     'connected' => ['type' => 'boolean']
                 ],
@@ -1613,7 +1627,16 @@ more results.
                         'type' => 'array',
                         'items' => ['$ref' => '#/definitions/CallbackApiModel']
                     ],
-                    'removeDiscoveryCallbacks' => ['type' => 'boolean']
+                    'removeDiscoveryCallbacks' => ['type' => 'boolean'],
+                    'logLevel' => [
+                        'type' => 'string',
+                        'enum' => [
+                            'Error',
+                            'Information',
+                            'Debug',
+                            'Verbose'
+                        ]
+                    ]
                 ],
                 'additionalProperties' => FALSE,
                 'required' => []
