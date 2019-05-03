@@ -6,6 +6,6 @@
     <Description>Azure Industrial IoT OPC Vault API</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication" Version="2.3.7" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication" Version="2.3.8" />
   </ItemGroup>
 </Project>
