@@ -360,7 +360,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/register").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/register").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -509,7 +509,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/{applicationId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/{applicationId}").ToString();
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -662,7 +662,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/{applicationId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/{applicationId}").ToString();
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -817,7 +817,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/{applicationId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/{applicationId}").ToString();
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             List<string> _queryParameters = new List<string>();
             if (force != null)
@@ -963,7 +963,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/{applicationId}/{approved}/approve").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/{applicationId}/{approved}/approve").ToString();
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             _url = _url.Replace("{approved}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(approved, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
@@ -1119,7 +1119,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/{applicationId}/unregister").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/{applicationId}/unregister").ToString();
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1256,7 +1256,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/find/{applicationUri}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/find/{applicationUri}").ToString();
             _url = _url.Replace("{applicationUri}", System.Uri.EscapeDataString(applicationUri));
             List<string> _queryParameters = new List<string>();
             if (nextPageLink != null)
@@ -1402,7 +1402,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/querybyid").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/querybyid").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1551,7 +1551,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/app/query").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/app/query").ToString();
             List<string> _queryParameters = new List<string>();
             if (nextPageLink != null)
             {
@@ -1955,7 +1955,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2100,7 +2100,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2266,7 +2266,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2416,7 +2416,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2562,7 +2562,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/{subject}/{certType}/create").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/{subject}/{certType}/create").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             _url = _url.Replace("{subject}", System.Uri.EscapeDataString(subject));
             _url = _url.Replace("{certType}", System.Uri.EscapeDataString(certType));
@@ -2696,7 +2696,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/groupsconfig").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/groupsconfig").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2852,7 +2852,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/issuercaversions").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/issuercaversions").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             List<string> _queryParameters = new List<string>();
             if (withCertificates != null)
@@ -3022,7 +3022,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/issuerca").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/issuerca").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             List<string> _queryParameters = new List<string>();
             if (thumbPrint != null)
@@ -3192,7 +3192,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/issuercacrl").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/issuercacrl").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             List<string> _queryParameters = new List<string>();
             if (thumbPrint != null)
@@ -3366,7 +3366,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/trustlist").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/trustlist").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             List<string> _queryParameters = new List<string>();
             if (nextPageLink != null)
@@ -3519,7 +3519,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/group/{group}/issuerca/create").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/group/{group}/issuerca/create").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -3654,7 +3654,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/sign").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/sign").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3794,7 +3794,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/keypair").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/keypair").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3954,7 +3954,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}/{rejected}/approve").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}/{rejected}/approve").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             _url = _url.Replace("{rejected}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(rejected, SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -4085,7 +4085,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}/accept").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}/accept").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4208,7 +4208,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4356,7 +4356,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4483,7 +4483,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}/purge").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}/purge").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4613,7 +4613,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}/revoke").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}/revoke").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4746,7 +4746,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{group}/revokegroup").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{group}/revokegroup").ToString();
             _url = _url.Replace("{group}", System.Uri.EscapeDataString(group));
             List<string> _queryParameters = new List<string>();
             if (allVersions != null)
@@ -4886,7 +4886,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/query").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/query").ToString();
             List<string> _queryParameters = new List<string>();
             if (appId != null)
             {
@@ -5063,7 +5063,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/request/{requestId}/{applicationId}/fetch").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/request/{requestId}/{applicationId}/fetch").ToString();
             _url = _url.Replace("{requestId}", System.Uri.EscapeDataString(requestId));
             _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
             // Create HTTP transport objects
@@ -5191,7 +5191,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/Status").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v2/Status").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
