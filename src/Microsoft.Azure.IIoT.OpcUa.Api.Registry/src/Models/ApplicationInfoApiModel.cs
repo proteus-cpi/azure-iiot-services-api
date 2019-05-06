@@ -28,7 +28,12 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         /// <summary>
         /// Client and server
         /// </summary>
-        ClientAndServer
+        ClientAndServer,
+
+        /// <summary>
+        /// Discovery server
+        /// </summary>
+        DiscoveryServer
     }
 
     /// <summary>

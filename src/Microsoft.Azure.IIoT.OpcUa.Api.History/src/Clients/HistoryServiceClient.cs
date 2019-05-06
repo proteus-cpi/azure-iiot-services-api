@@ -377,8 +377,6 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.History.Clients {
             return response.GetContent<HistoryUpdateResponseApiModel>();
         }
 
-        private const string kContinuationTokenHeaderKey = "x-ms-continuation";
-        private const string kPageSizeHeaderKey = "x-ms-max-item-count";
         private readonly IHttpClient _httpClient;
         private readonly ILogger _logger;
         private readonly string _serviceUri;

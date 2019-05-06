@@ -37,11 +37,8 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Twin.Clients {
         /// <param name="logger"></param>
         public TwinServiceClient(IHttpClient httpClient, string serviceUri,
             string resourceId, ILogger logger) {
-            if (serviceUri == null) {
-                throw new ArgumentNullException(nameof(serviceUri),
+            _serviceUri = serviceUri ?? throw new ArgumentNullException(nameof(serviceUri),
                     "Please configure the Url of the endpoint micro service.");
-            }
-            _serviceUri = serviceUri;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _resourceId = resourceId;
@@ -273,8 +270,6 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Twin.Clients {
             return response.GetContent<MethodCallResponseApiModel>();
         }
 
-        private const string kContinuationTokenHeaderKey = "x-ms-continuation";
-        private const string kPageSizeHeaderKey = "x-ms-max-item-count";
         private readonly IHttpClient _httpClient;
         private readonly ILogger _logger;
         private readonly string _serviceUri;
