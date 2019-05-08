@@ -620,7 +620,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Cli {
                 new ApplicationRegistrationRequestApiModel {
                     ApplicationUri = options.GetValue<string>("-u", "--url"),
                     ApplicationName = options.GetValueOrDefault<string>("-n", "--name", null),
-                    Locale = options.GetValueOrDefault<string>("-l", "--locale", null),
+                    GatewayServerUri = options.GetValueOrDefault<string>("-g", "--gwuri", null),
                     ApplicationType = options.GetValueOrDefault<ApplicationType>("-t", "--type", null),
                     ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
                     DiscoveryUrls = new HashSet<string> {
@@ -671,9 +671,11 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Cli {
             CliOptions options) {
             await service.UpdateApplicationAsync(options.GetValue<string>("-i", "--id"),
                 new ApplicationRegistrationUpdateApiModel {
-                    // ...
                     ApplicationName = options.GetValueOrDefault<string>("-n", "--name", null),
-                    Locale = options.GetValueOrDefault<string>("-l", "--locale", null)
+                    GatewayServerUri = options.GetValueOrDefault<string>("-g", "--gwuri", null),
+                    ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
+                    DiscoveryProfileUri = options.GetValueOrDefault<string>("-d", "--dpuri", null)
+                    // ...
                 });
         }
 
@@ -691,10 +693,13 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Cli {
 
             var query = new ApplicationRegistrationQueryApiModel {
                 ApplicationUri = options.GetValueOrDefault<string>("-u", "--uri", null),
-                ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
                 ApplicationType = options.GetValueOrDefault<ApplicationType>("-t", "--type", null),
                 ApplicationName = options.GetValueOrDefault<string>("-n", "--name", null),
-                Locale = options.GetValueOrDefault<string>("-l", "--locale", null)
+                ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
+                GatewayServerUri = options.GetValueOrDefault<string>("-g", "--gwuri", null),
+                DiscoveryProfileUri = options.GetValueOrDefault<string>("-d", "--dpuri", null),
+                Locale = options.GetValueOrDefault<string>("-l", "--locale", null),
+                State = options.GetValueOrDefault<ApplicationState>("-s", "--state", null)
             };
 
             // Unregister all applications
@@ -762,9 +767,12 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Cli {
             var query = new ApplicationRegistrationQueryApiModel {
                 ApplicationUri = options.GetValueOrDefault<string>("-u", "--uri", null),
                 ProductUri = options.GetValueOrDefault<string>("-p", "--product", null),
+                GatewayServerUri = options.GetValueOrDefault<string>("-g", "--gwuri", null),
+                DiscoveryProfileUri = options.GetValueOrDefault<string>("-d", "--dpuri", null),
                 ApplicationType = options.GetValueOrDefault<ApplicationType>("-t", "--type", null),
                 ApplicationName = options.GetValueOrDefault<string>("-n", "--name", null),
                 Locale = options.GetValueOrDefault<string>("-l", "--locale", null),
+                State = options.GetValueOrDefault<ApplicationState>("-s", "--state", null),
                 IncludeNotSeenSince = options.IsProvidedOrNull("-d", "--deleted")
             };
             if (options.IsSet("-A", "--all")) {
@@ -1084,6 +1092,8 @@ Commands and Options
         -t, --type      Application type (default to Server)
         -p, --product   Product uri of the application
         -d, --discovery Url of the discovery endpoint
+        -d, --dpuri     Discovery profile uri
+        -g, --gwuri     Gateway uri
         -F, --format    Json format for result
 
      query       Find applications
@@ -1091,8 +1101,12 @@ Commands and Options
         -P, --page-size Size of page
         -A, --all       Return all application infos (unpaged)
         -u, --uri       Application uri of the application.
+        -i, --dpuri     Discovery profile uri
+        -g, --gwuri     Gateway uri
+        -u, --uri       Application uri of the application.
         -n  --name      Application name of the application
         -t, --type      Application type (default to all)
+        -s, --state     Application state (default to all)
         -p, --product   Product uri of the application
         -d, --deleted   Include soft deleted applications.
         -F, --format    Json format for result
@@ -1106,6 +1120,9 @@ Commands and Options
         with ...
         -i, --id        Id of application to update (mandatory)
         -n, --name      Application name
+        -d, --dpuri     Discovery profile uri
+        -g, --gwuri     Gateway uri
+        -p, --product   Product uri of the application
 
      unregister  Unregister application
         with ...
@@ -1115,6 +1132,9 @@ Commands and Options
         -n  --name      Application name and/or
         -t, --type      Application type and/or
         -p, --product   Product uri and/or
+        -i, --dpuri     Discovery profile uri
+        -g, --gwuri     Gateway uri
+        -s, --state     Application state (default to all)
 
      purge       Purge applications not seen ...
         with ...

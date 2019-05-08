@@ -33,18 +33,18 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         public string ProductUri { get; set; }
 
         /// <summary>
-        /// Name of server
+        /// Default name of the application
         /// </summary>
         [JsonProperty(PropertyName = "applicationName",
             NullValueHandling = NullValueHandling.Ignore)]
         public string ApplicationName { get; set; }
 
         /// <summary>
-        /// Locale of name - defaults to "en"
+        /// Localized names of application
         /// </summary>
-        [JsonProperty(PropertyName = "locale",
+        [JsonProperty(PropertyName = "localizedNames",
             NullValueHandling = NullValueHandling.Ignore)]
-        public string Locale { get; set; }
+        public Dictionary<string, string> LocalizedNames { get; set; }
 
         /// <summary>
         /// Capabilities
@@ -66,5 +66,12 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         [JsonProperty(PropertyName = "discoveryProfileUri",
             NullValueHandling = NullValueHandling.Ignore)]
         public string DiscoveryProfileUri { get; set; }
+
+        /// <summary>
+        /// Gateway server uri
+        /// </summary>
+        [JsonProperty(PropertyName = "gatewayServerUri",
+            NullValueHandling = NullValueHandling.Ignore)]
+        public string GatewayServerUri { get; set; }
     }
 }

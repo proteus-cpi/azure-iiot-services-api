@@ -20,18 +20,19 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         public string ProductUri { get; set; }
 
         /// <summary>
-        /// Application name
+        /// Default name of the application
         /// </summary>
         [JsonProperty(PropertyName = "applicationName",
             NullValueHandling = NullValueHandling.Ignore)]
         public string ApplicationName { get; set; }
 
         /// <summary>
-        /// Locale of name - defaults to "en"
+        /// Localized names of application keyed on locale.
+        /// Set value to null to remove loc entry.
         /// </summary>
-        [JsonProperty(PropertyName = "locale",
+        [JsonProperty(PropertyName = "localizedNames",
             NullValueHandling = NullValueHandling.Ignore)]
-        public string Locale { get; set; }
+        public Dictionary<string, string> LocalizedNames { get; set; }
 
         /// <summary>
         /// Application public cert
@@ -60,5 +61,12 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         [JsonProperty(PropertyName = "discoveryProfileUri",
             NullValueHandling = NullValueHandling.Ignore)]
         public string DiscoveryProfileUri { get; set; }
+
+        /// <summary>
+        /// Gateway server uri
+        /// </summary>
+        [JsonProperty(PropertyName = "gatewayServerUri",
+            NullValueHandling = NullValueHandling.Ignore)]
+        public string GatewayServerUri { get; set; }
     }
 }
