@@ -181,7 +181,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Clients {
             if (content == null) {
                 throw new ArgumentNullException(nameof(content));
             }
-            if (content.ApplicationUri == null) {
+            if (string.IsNullOrEmpty(content.ApplicationUri)) {
                 throw new ArgumentNullException(nameof(content.ApplicationUri));
             }
             var request = _httpClient.NewRequest($"{_serviceUri}/v2/applications",
@@ -190,6 +190,35 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Clients {
             var response = await _httpClient.PutAsync(request).ConfigureAwait(false);
             response.Validate();
             return response.GetContent<ApplicationRegistrationResponseApiModel>();
+        }
+
+        /// <inheritdoc/>
+        public async Task ApproveApplicationAsync(string applicationId, bool force) {
+            if (string.IsNullOrEmpty(applicationId)) {
+                throw new ArgumentNullException(nameof(applicationId));
+            }
+            var uri = $"{_serviceUri}/v2/applications/{applicationId}/approve";
+            if (force) {
+                uri += $"?force=true";
+            }
+            var request = _httpClient.NewRequest(uri);
+            var response = await _httpClient.PostAsync(request).ConfigureAwait(false);
+            response.Validate();
+        }
+
+
+        /// <inheritdoc/>
+        public async Task RejectApplicationAsync(string applicationId, bool force) {
+            if (string.IsNullOrEmpty(applicationId)) {
+                throw new ArgumentNullException(nameof(applicationId));
+            }
+            var uri = $"{_serviceUri}/v2/applications/{applicationId}/reject";
+            if (force) {
+                uri += $"?force=true";
+            }
+            var request = _httpClient.NewRequest(uri);
+            var response = await _httpClient.PostAsync(request).ConfigureAwait(false);
+            response.Validate();
         }
 
         /// <inheritdoc/>
@@ -211,6 +240,9 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Clients {
         /// <inheritdoc/>
         public async Task<ApplicationRegistrationApiModel> GetApplicationAsync(
             string applicationId) {
+            if (string.IsNullOrEmpty(applicationId)) {
+                throw new ArgumentNullException(nameof(applicationId));
+            }
             var request = _httpClient.NewRequest($"{_serviceUri}/v2/applications/{applicationId}",
                 _resourceId);
             var response = await _httpClient.GetAsync(request).ConfigureAwait(false);
@@ -303,8 +335,8 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Clients {
         }
 
         /// <inheritdoc/>
-        public async Task<EndpointInfoListApiModel> QueryEndpointsAsync(EndpointRegistrationQueryApiModel query,
-            bool? onlyServerState, int? pageSize) {
+        public async Task<EndpointInfoListApiModel> QueryEndpointsAsync(
+            EndpointRegistrationQueryApiModel query, bool? onlyServerState, int? pageSize) {
             var uri = new UriBuilder($"{_serviceUri}/v2/endpoints/query");
             if (onlyServerState ?? false) {
                 uri.Query = "onlyServerState=true";

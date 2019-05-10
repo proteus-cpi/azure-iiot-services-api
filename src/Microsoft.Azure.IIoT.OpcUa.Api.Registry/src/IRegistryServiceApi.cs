@@ -89,6 +89,24 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry {
             ApplicationRegistrationQueryApiModel query, int? pageSize = null);
 
         /// <summary>
+        /// Approve the application
+        /// </summary>
+        /// <param name="applicationId"></param>
+        /// <param name="force"></param>
+        /// <returns></returns>
+        Task ApproveApplicationAsync(string applicationId,
+            bool force = false);
+
+        /// <summary>
+        /// Reject the application
+        /// </summary>
+        /// <param name="applicationId"></param>
+        /// <param name="force"></param>
+        /// <returns></returns>
+        Task RejectApplicationAsync(string applicationId, 
+            bool force = false);
+
+        /// <summary>
         /// Unregister and delete application and all endpoints.
         /// </summary>
         /// <param name="applicationId"></param>

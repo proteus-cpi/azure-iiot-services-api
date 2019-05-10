@@ -115,7 +115,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry {
         }
 
         /// <inheritdoc/>
-        public async Task<ApplicationRegistrationResultModel> RegisterAsync(
+        public async Task<ApplicationRegistrationResultModel> RegisterApplicationAsync(
             ApplicationRegistrationRequestModel request) {
             var result = await _client.RegisterAsync(
                 Map<ApplicationRegistrationRequestApiModel>(request));
@@ -157,6 +157,16 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry {
             var result = await _client.QueryApplicationsAsync(
                 Map<ApplicationRegistrationQueryApiModel>(query), pageSize);
             return Map<ApplicationInfoListModel>(result);
+        }
+
+        /// <inheritdoc/>
+        public Task ApproveApplicationAsync(string applicationId, bool force) {
+            return _client.ApproveApplicationAsync(applicationId, force);
+        }
+
+        /// <inheritdoc/>
+        public Task RejectApplicationAsync(string applicationId, bool force) {
+            return _client.RejectApplicationAsync(applicationId, force);
         }
 
         /// <inheritdoc/>

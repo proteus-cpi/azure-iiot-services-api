@@ -40,6 +40,13 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Registry.Models {
         public string ApplicationName { get; set; }
 
         /// <summary>
+        /// Site of the application
+        /// </summary>
+        [JsonProperty(PropertyName = "siteId",
+            NullValueHandling = NullValueHandling.Ignore)]
+        public string SiteId { get; set; }
+
+        /// <summary>
         /// Localized names of application
         /// </summary>
         [JsonProperty(PropertyName = "localizedNames",
