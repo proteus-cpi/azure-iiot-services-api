@@ -24,7 +24,7 @@ namespace Microsoft.Azure.IIoT.OpcUa.Api.Vault
     /// <summary>
     /// OPC UA Vault Service
     /// </summary>
-    public partial class OpcVault : ServiceClient<OpcVault>, IOpcVault
+    public partial class OpcVault : ServiceClient<OpcVault>, IVaultServiceApi
     {
         /// <summary>
         /// The base URI of the service.
